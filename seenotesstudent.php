@@ -182,7 +182,7 @@ mysqli_close($conn);
                 <div class="col">
                     <select name="department" class="form-control">
                         <option value="">Select Department</option>
-                        <option value="CSE" <?php echo ($department == 'CSE') ? 'selected' : ''; ?>>Computer Science Engineering</option>
+                        <option value="CSE" <?php echo ($department == 'CSE') ? 'selected' : ''; ?>>Computer Science & Engineering</option>
                         <option value="Mech" <?php echo ($department == 'Mech') ? 'selected' : ''; ?>>Mechanical Engineering</option>
                         <option value="Civil" <?php echo ($department == 'Civil') ? 'selected' : ''; ?>>Civil Engineering</option>
                         <option value="E&TC" <?php echo ($department == 'E&TC') ? 'selected' : ''; ?>>Electronics & Telecommunication</option>

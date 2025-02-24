@@ -74,6 +74,7 @@ $result = mysqli_query($data, $sql);
                                     <th>Email <i class="fas fa-envelope"></i></th>
                                     <th>Course <i class="fas fa-book"></i></th>
                                     <th>Class <i class="fas fa-school"></i></th>
+                                    <th>Department <i class="fas fa-building"></i></th>
                                     <th>idcard <i class="fas fa-id-card"></i></th>
                                     <th>Phone <i class="fas fa-phone"></i></th>
                                     <th>Password <i class="fas fa-lock"></i></th>
@@ -81,12 +82,14 @@ $result = mysqli_query($data, $sql);
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php while ($info = $result->fetch_assoc()) { ?>
+                                <?php while ($info = $result->fetch_assoc()) 
+                            { ?>
                                 <tr>
                                     <td><?php echo $info['name']; ?></td>
                                     <td><?php echo $info['email']; ?></td>
                                     <td><?php echo $info['course']; ?></td>
                                     <td><?php echo $info['class']; ?></td>
+                                    <td><?php echo $info['department']; ?></td>
                                     <td><?php echo $info['idcard']; ?></td>
                                     <td><?php echo $info['phone']; ?></td>
                                     <td><?php echo $info['password']; ?></td>

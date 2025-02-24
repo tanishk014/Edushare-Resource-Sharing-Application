@@ -31,6 +31,7 @@ if (isset($_POST['add_student'])) {
     $user_phone = $_POST['phone'];
     $user_course = $_POST['course'];
     $user_class = $_POST['class'];
+    $user_department = $_POST['department'];
     $user_password = $_POST['password'];
     $usertype = "student";
 
@@ -43,7 +44,7 @@ if (isset($_POST['add_student'])) {
         alert('Username Already Exists. Try Another one');
         </script>";
     } else {
-        $sql = "INSERT INTO user(username, email, phone, course, class, usertype, password) VALUES ('$username', '$user_email', '$user_phone', '$user_course', '$user_class', '$usertype', '$user_password')";
+        $sql = "INSERT INTO user(username, email, phone, course, class, department ,usertype, password ) VALUES ('$username', '$user_email', '$user_phone', '$user_course', '$user_class', '$user_department','$usertype', '$user_password')";
         $result = mysqli_query($data, $sql);
         if ($result) {
             echo "<script type='text/javascript'>
@@ -129,6 +130,20 @@ if (isset($_POST['add_student'])) {
                                 <input type="text" class="form-control" id="class" name="class" value="<?php echo $info['class']; ?>" required>
                             </div>
                             
+                            <div class="form-group">
+    <label class="form-label" for="department">Department <i class="fas fa-building"></i></label>
+    <input type="text" class="form-control" id="department" name="department" value="<?php echo $info['department']; ?>" required>
+</div>
+
+
+
+
+
+
+
+
+
+
 
                             <div class="form-group">
                                 <label class="form-label" for="password">Password <i class="fas fa-lock"></i></label>

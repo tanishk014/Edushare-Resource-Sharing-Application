@@ -1,58 +1,52 @@
 <?php
-
 session_start();
 
-$host="localhost";
+$host = "localhost";
+$user = "root";
+$password = "";
+$db = "rsa";
 
-$user="root";
+$data = mysqli_connect($host, $user, $password, $db);
 
-$password="";
-
-$db="rsa";
-
-$data=mysqli_connect($host,$user,$password,$db);
-
-if($data==false)
-{
-die("connection error");
-
+if (!$data) {
+    die("Connection error");
 }
 
+if (isset($_POST['apply'])) {
+    $data_name = $_POST['name'];
+    $data_email = $_POST['email'];
+    $data_course = $_POST['course'];
+    $data_class = $_POST['class'];
+    $data_department = $_POST['department'];
+    $data_phone = $_POST['phone'];
+    $data_password = $_POST['password'];
 
-if(isset($_POST['apply']))
-{
-$data_name=$_POST['name'];
-$data_email=$_POST['email'];
-$data_course=$_POST['course'];
-$data_class=$_POST['class'];
+    // ✅ Check if file is uploaded
+    if (isset($_FILES['idcard']) && $_FILES['idcard']['error'] == 0) {
+        $file = $_FILES['idcard']['name'];
+        $dst = "./idcard/" . $file; // Path to save image
+        $dst_db = "idcard/" . $file; // Path for database storage
 
-//start
-//to upload the image in the database
-$file=$_FILES['idcard']['name'];
-$dst="./idcard/".$file; // thhis is for to store images in idcards named folder 
-$dst_db="idcard/".$file; //------ this is for database     --------- 
-move_uploaded_file($_FILES['idcard']['tmp_name'],$dst );
-//end 
+        // Move file to the folder
+        if (move_uploaded_file($_FILES['idcard']['tmp_name'], $dst)) {
+            // ✅ Insert data into the database
+            $sql = "INSERT INTO admission (name, email, course, class, department, idcard, phone, password) 
+                    VALUES ('$data_name', '$data_email', '$data_course', '$data_class', '$data_department', '$dst_db', '$data_phone', '$data_password')";
 
-$data_idcard=$_POST['idcard'];
-$data_phone=$_POST['phone'];
-$data_password=$_POST['password'];
+            $result = mysqli_query($data, $sql);
 
-$sql="INSERT INTO admission(name,email,course,class,idcard,phone,password) VALUES('$data_name','$data_email','$data_course','$data_class','$dst_db','$data_phone','$data_password')";
-
-$result=mysqli_query($data,$sql);
-
-if($result)
-{
-    $_SESSION['message']="Your Application Submitted Successfuly";
-    header("location:register.php");
+            if ($result) {
+                $_SESSION['message'] = "Your Application Submitted Successfully";
+                header("Location: register.php");
+                exit();
+            } else {
+                echo "Apply Failed: " . mysqli_error($data);
+            }
+        } else {
+            echo "Error uploading file!";
+        }
+    } else {
+        echo "No file uploaded or file upload error!";
+    }
 }
-
-else
-{
-echo"Apply Failed";
-}
-
-}
-
-
+?>

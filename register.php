@@ -173,6 +173,7 @@ footer {
                 <label for="email" class="label_text">Email</label>
                 <input class="input_deg" id="email" type="text" name="email" required>
             </div>
+
             <div class="adm_int">
                 <label for="course" class="label_text">Course</label>
                 <select name="course" class="input_deg" id="course" required>
@@ -181,6 +182,9 @@ footer {
                     <option>Be</option>
                 </select>
             </div>
+
+
+
             <div class="adm_int">
                 <label for="class" class="label_text">Class</label>
                 <select name="class" class="input_deg" id="class" required>
@@ -190,6 +194,22 @@ footer {
                     <option>Ty</option>
                 </select>
             </div>
+            
+            <div class="adm_int">
+                <label for="department" class="label_text">Department </label>
+                <select name="department" class="input_deg" id="department" required>
+                    <option>Select</option>
+                    <option>Computer Science & Engineering</option>
+                    <option>Mechanical Engineering</option>
+                    <option>Civil Engineering</option>
+                    <option>Electronics & Telecommunication Engineering</option>
+                </select>
+            </div>
+            
+
+
+
+
 
             <div class="adm_int">
                 <label for="id_card" class="label_text">ID Card</label>

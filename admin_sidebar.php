@@ -46,6 +46,16 @@
             <li class="mb-2">
                 <a href="adminhome.php" class="btn btn-outline-primary btn-block"><i class="fas fa-home"></i> Dashboard</a>
             </li>
+
+            <li class="mb-2">
+    <a href="useractivity.php" class="btn btn-outline-primary btn-block">
+        <i class="fas fa-chart-line"></i> User Activity
+    </a>
+</li>
+
+
+
+
             <li class="mb-2">
                 <a href="admission.php" class="btn btn-outline-primary btn-block"><i class="fas fa-user-graduate"></i> See Enrollments</a>
             </li>

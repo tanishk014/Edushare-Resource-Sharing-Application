@@ -79,16 +79,24 @@ if (!isset($_SESSION['username'])) {
         <center>
              
             <div class="container">
+
+            <div class="card">
+    <a href="useractivity.php"  class="btn btn-outline-primary btn-block">
+        <i class="fas fa-chart-line"></i> User Activity
+    </a>
+</div>
+
+
+
                 <div class="card">
-                     
-                    <a href="admission.php">See Enrollments</a>
+                     <a href="admission.php">See Enrollments</a>
                 </div>
+
                 <div class="card">
-                    
                     <a href="viewnotesadmin.php">View Notes</a>
                 </div>
+
                 <div class="card">
-                    
                     <a href="view_student.php">View Users</a>
                 </div>
 
